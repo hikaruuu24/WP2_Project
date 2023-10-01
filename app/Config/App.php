@@ -18,7 +18,7 @@ class App extends BaseConfig
      *    http://example.com/
      */
     // public string $baseURL = BASE;
-    public string $baseURL = 'http://wp2_krissetiyadi.test/';
+    public string $baseURL = 'http://wp2_project.test/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

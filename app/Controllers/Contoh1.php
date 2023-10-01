@@ -13,10 +13,13 @@ class Contoh1 extends BaseController
               saya tinggal di bekasi";
     }
 
-    public function penjumlahan($n1, $n2) {
+    public function penjumlahan($n1 = 0, $n2 = 0) {
         $modelLatihan = new ModelLatihan1();
-        $hasil = $modelLatihan->jumlah($n1, $n2);
-        return $hasil;
+        $data['nilai1'] = $n1;
+        $data['nilai2'] = $n2;
+        $data['hasil'] = $modelLatihan->jumlah($n1, $n2);
+        return view('latihan_wp/index', $data);
+        
 
     }
 }

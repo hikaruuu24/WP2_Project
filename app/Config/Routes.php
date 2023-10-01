@@ -33,6 +33,10 @@ $routes->get('/', 'DashboardController::index');
 $routes->get('user/(:num)', 'UserController::userProfile/$1');
 $routes->get('contoh1', 'Contoh1::index');
 $routes->get('penjumlahan/(:num)/(:num)', 'Contoh1::penjumlahan/$1/$2');
+$routes->get('matakuliah', 'Matakuliah::index');
+$routes->post('matakuliah/cetak', 'Matakuliah::cetak');
+$routes->get('web', 'Web::index');
+$routes->get('web/about', 'Web::about');
 
 
 
