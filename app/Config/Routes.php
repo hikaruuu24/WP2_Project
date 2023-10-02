@@ -38,6 +38,17 @@ $routes->post('matakuliah/cetak', 'Matakuliah::cetak');
 $routes->get('web', 'Web::index');
 $routes->get('web/about', 'Web::about');
 
+// PUSTAKA BOOKING
+// $routes->resource('kategori', ['controller' => 'KategoriController']);
+$routes->get('kategori', 'KategoriController::index');
+$routes->get('kategori/(:num)', 'KategoriController::show/$1');
+$routes->get('kategori/create', 'KategoriController::create');
+$routes->post('kategori', 'KategoriController::store');
+$routes->get('kategori/edit/(:num)', 'KategoriController::edit/$1');
+$routes->put('kategori/(:num)', 'KategoriController::update/$1');
+$routes->delete('kategori/(:num)', 'KategoriController::delete/$1');
+
+
 
 
 /*
