@@ -41,13 +41,22 @@ $routes->get('web', 'Web::index');
 $routes->get('web/about', 'Web::about');
 
 // PUSTAKA BOOKING
-$routes->get('kategori', 'KategoriController::index');
+$routes->get('kategori', 'KategoriController::index', ['as' => 'kategori_list']);
 $routes->get('kategori/(:num)', 'KategoriController::show/$1');
 $routes->get('kategori/create', 'KategoriController::create');
 $routes->post('kategori', 'KategoriController::store');
 $routes->get('kategori/edit/(:num)', 'KategoriController::edit/$1');
 $routes->put('kategori/(:num)', 'KategoriController::update/$1');
 $routes->delete('kategori/(:num)', 'KategoriController::delete/$1');
+
+// ROLE
+$routes->get('role', 'RoleController::index', ['as' => 'role_list']);
+$routes->get('role/create', 'RoleController::create', ['as' => 'role_create']);
+$routes->post('role', 'RoleController::store', ['as' => 'role_store']);
+$routes->get('role/edit/(:num)', 'RoleController::edit/$1', ['as' => 'role_edit']);
+$routes->put('role/(:num)', 'RoleController::update/$1', ['as' => 'role_update']);
+$routes->delete('role/(:num)', 'RoleController::delete/$1', ['as' => 'role_delete']);
+
 
 // USER MANAGEMENT
 $routes->get('user', 'UserController::index', ['as' => 'user_list']);
@@ -57,6 +66,14 @@ $routes->get('user/edit/(:num)', 'UserController::edit/$1', ['as' => 'user_edit'
 $routes->put('user/(:num)', 'UserController::update/$1', ['as' => 'user_update']);
 $routes->delete('user/(:num)', 'UserController::delete/$1', ['as' => 'user_delete']);
 $routes->get('user/(:num)', 'UserController::userProfile/$1', ['as' => 'user_profile']);
+
+// MASTER DATA
+$routes->get('master-data', function () {
+    $data['title'] = 'Master Data';
+    return view('master-data/index', $data);
+});
+
+
 
 
 /*

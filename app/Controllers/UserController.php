@@ -18,6 +18,12 @@ class UserController extends BaseController
         return view('users/user_list.php', $data);
     }
 
+    public function create()
+    {
+        $data['title'] = 'Create User';
+        return view('users/create.php', $data);
+    }
+
     public function userProfile($id)
     {
         $user = new UserModel();

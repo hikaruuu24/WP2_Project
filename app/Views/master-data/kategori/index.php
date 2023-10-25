@@ -8,9 +8,9 @@
                     <div class="col-6">
                     </div>
                     <div class="col-6 d-flex justify-content-end my-2">
-                        <a href="<?=route_to('user_create')?>" class="btn btn-md btn-info">
+                        <a href="<?=base_url('kategori/create')?>" class="btn btn-md btn-info">
                             <i class="fa fa-plus"></i> 
-                            Create record
+                            Create data
                         </a>
                     </div>  
                     <?php if (session()->getFlashdata('message')): ?>
@@ -23,32 +23,30 @@
                     <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>Email</th>
-                        <th>Username</th>
-                        <th>Role</th>
+                        <th>Name</th>
+                        <th>Timestamp</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         <?php $i= 1;?>
-                        <?php foreach ($users as $data): ?>
+                        <?php foreach ($kategori as $data): ?>
                             <tr>
                                 <td><?= $i++ ?></td>
-                                <td><?= $data->email ?></td>
-                                <td><?= $data->username ?></td>
-                                <td><?= $data->role ?? 'user' ?></td>
+                                <td><?= $data['name'] ?></td>
+                                <td><?= $data['timestamp'] ?></td>
                                 <td>
-                                    <div class="btn-group-sm">
-                                        <!-- <a href=""
+                                <div class="btn-group-sm">
+                                        <a href="<?= base_url('kategori/edit/'. $data['id_kategori'])?>"
                                             class="btn btn-warning text-white">
                                             <i class="far fa-edit"></i>
                                             Edit
                                         </a>
 
-                                        <a href="#" onclick="modalDelete('Kategori', '', 'kategori/', 'kategori')" class="btn btn-danger f-12">
+                                        <a href="#" onclick="modalDelete('Kategori', '<?= $data['name'] ?>', 'kategori/<?= $data['id_kategori'] ?>', 'kategori')" class="btn btn-danger f-12">
                                             <i class="far fa-trash-alt"></i>
                                             Delete
-                                        </a> -->
+                                        </a>
 
                                     </div>
                                 </td>

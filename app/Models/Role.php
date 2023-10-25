@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Kategori extends Model
+class Role extends Model
 {
-    protected $table = 'kategori';
-    protected $primaryKey = 'id_kategori';
+    protected $table = 'role';
+    protected $primaryKey = 'id';
     protected $allowedFields = ['name', 'timestamp'];
 }

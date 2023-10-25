@@ -8,21 +8,20 @@ use App\Models\Kategori;
 class KategoriController extends BaseController
 {
     
-    
     public function index()
     {
-        $data['title'] = 'Data Kategori';
+        $data['title'] = 'Data Category';
         $model = new Kategori();
         $data['kategori'] = $model->findAll();
-        return view('pustaka-booking/kategori/index', $data);
+        return view('master-data/kategori/index', $data);
     }
 
     public function create()
     {
         session();
-        $data['title'] = 'Tambah Data Kategori';
+        $data['title'] = 'Create Kategori';
         $data['validation'] = \Config\Services::validation();
-        return view('pustaka-booking/kategori/create', $data);
+        return view('master-data/kategori/create', $data);
     }
 
     public function store() {
@@ -30,7 +29,7 @@ class KategoriController extends BaseController
         
          //define validation
          $validationRules = $this->validate([
-            'nama_kategori'    =>'required|min_length[3]',
+            'name'    =>'required|min_length[3]',
         ]);
 
         if (!$validationRules) {
@@ -41,7 +40,7 @@ class KategoriController extends BaseController
         
         $model = new Kategori();
         $data = [
-            'nama_kategori' => $this->request->getPost('nama_kategori'),
+            'name' => $this->request->getPost('name'),
             'timestamp' => date('Y-m-d H:i:s')
         ];
 
@@ -55,17 +54,17 @@ class KategoriController extends BaseController
     }
 
     public function edit($id) {
-        $data['title'] = 'Edit Data Kategori';
+        $data['title'] = 'Edit Kategori';
         $model = new Kategori();
         $data['kategori'] = $model->where('id_kategori',$id)->first();
-        return view('pustaka-booking/kategori/edit', $data);
+        return view('master-data/kategori/edit', $data);
     }
 
     public function update($id){
         $model = new Kategori();
         //define validation
         $validation = $this->validate([
-            'nama_kategori'    => [
+            'name'    => [
                 'rules'  => 'required|min_length[3]',
                 'errors' => [
                     'required' => 'Nama Kategori Harus diisi',
@@ -83,7 +82,7 @@ class KategoriController extends BaseController
         }
 
         $data = [
-            'nama_kategori' => $this->request->getPost('nama_kategori'),
+            'name' => $this->request->getPost('name'),
             'timestamp' => date('Y-m-d H:i:s')
         ];
 

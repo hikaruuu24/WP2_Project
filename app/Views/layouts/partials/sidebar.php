@@ -26,13 +26,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="chat.html" class="waves-effect">
+                                <a href="<?= base_url('master-data') ?>" class="waves-effect">
                                     <i class="bx bx-briefcase-alt-2"></i>
                                     <span key="t-master-data">Master data</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="chat.html" class="waves-effect">
+                                <a href="<?= route_to('user_list') ?>" class="waves-effect">
                                     <i class="bx bxs-user-detail"></i>
                                     <span key="t-user-management">User management</span>
                                 </a>
