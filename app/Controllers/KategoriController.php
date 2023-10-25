@@ -19,7 +19,9 @@ class KategoriController extends BaseController
 
     public function create()
     {
+        session();
         $data['title'] = 'Tambah Data Kategori';
+        $data['validation'] = \Config\Services::validation();
         return view('pustaka-booking/kategori/create', $data);
     }
 
@@ -27,22 +29,14 @@ class KategoriController extends BaseController
 
         
          //define validation
-         $validation = $this->validate([
-            'nama_kategori'    => [
-                'rules'  => 'required|min_length[3]',
-                'errors' => [
-                    'required' => 'Nama Kategori Harus diisi',
-                    'min_length' => 'Nama Kategori terlalu pendek'
-                ]
-            ],
+         $validationRules = $this->validate([
+            'nama_kategori'    =>'required|min_length[3]',
         ]);
 
-        if (!$validation) {
-            // Store validation errors in flash data
-            session()->setFlashdata('validation_errors', $this->validator->getErrors());
-        
+        if (!$validationRules) {
+            $validation = \Config\Services::validation();
             // Redirect back to the edit form with the ID
-            return redirect()->to("/kategori/create");
+            return redirect()->to("/kategori/create")->withInput();
         }
         
         $model = new Kategori();

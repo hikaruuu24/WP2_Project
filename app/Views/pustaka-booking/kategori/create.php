@@ -7,11 +7,16 @@
                 <h5 class="text-white">Kategori</h5>
             </div>
             <div class="card-body">
-                <?php if (isset($validation)): ?>
-                    <div class="alert alert-danger">
-                        <?php echo $validation->listErrors(); ?>
+                <?php if (session('validation')) : ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <ul>
+                            <?php foreach (session('validation')->getErrors() as $error) : ?>
+                                <li><?= esc($error) ?></li>
+                            <?php endforeach ?>
+                        </ul>
                     </div>
-                <?php endif; ?>
+                <?php endif ?>
                 <div class="row">
                     <div class="col-12">
                         <form action="<?= base_url('kategori')?>" method="post">

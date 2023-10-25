@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use Myth\Auth\Commands\CreateUser;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -29,8 +31,8 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('user/(:num)', 'UserController::userProfile/$1');
+// $routes->get('/', 'Home::index');
+$routes->get('/', 'DashboardController::index');
 $routes->get('contoh1', 'Contoh1::index');
 $routes->get('penjumlahan/(:num)/(:num)', 'Contoh1::penjumlahan/$1/$2');
 $routes->get('matakuliah', 'Matakuliah::index');
@@ -39,7 +41,6 @@ $routes->get('web', 'Web::index');
 $routes->get('web/about', 'Web::about');
 
 // PUSTAKA BOOKING
-// $routes->resource('kategori', ['controller' => 'KategoriController']);
 $routes->get('kategori', 'KategoriController::index');
 $routes->get('kategori/(:num)', 'KategoriController::show/$1');
 $routes->get('kategori/create', 'KategoriController::create');
@@ -48,7 +49,14 @@ $routes->get('kategori/edit/(:num)', 'KategoriController::edit/$1');
 $routes->put('kategori/(:num)', 'KategoriController::update/$1');
 $routes->delete('kategori/(:num)', 'KategoriController::delete/$1');
 
-
+// USER MANAGEMENT
+$routes->get('user', 'UserController::index', ['as' => 'user_list']);
+$routes->get('user/create', 'UserController::create', ['as' => 'user_create']);
+$routes->post('user', 'UserController::store', ['as' => 'user_store']);
+$routes->get('user/edit/(:num)', 'UserController::edit/$1', ['as' => 'user_edit']);
+$routes->put('user/(:num)', 'UserController::update/$1', ['as' => 'user_update']);
+$routes->delete('user/(:num)', 'UserController::delete/$1', ['as' => 'user_delete']);
+$routes->get('user/(:num)', 'UserController::userProfile/$1', ['as' => 'user_profile']);
 
 
 /*

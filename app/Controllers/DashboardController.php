@@ -11,6 +11,7 @@ class DashboardController extends BaseController
         $data['title'] = 'Dashboard';
         return view('index', $data);
     }
+    
     public function login()
     {
         return view('Auth/login');

@@ -5,10 +5,10 @@
             <div class="navbar-brand-box">
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="assets/images/logo.svg" alt="" height="22">
+                        <img src=<?= base_url("assets/images/logo.svg")?> alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="17">
+                        <img src=<?= base_url("assets/images/logo-dark.png")?> alt="" height="17">
                     </span>
                 </a>
 
@@ -58,7 +58,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="<?= base_url('user/'.user()->id)?>"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                    <a class="dropdown-item" href="<?= route_to('user_profile', user()->id)?>"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
                 </div>
