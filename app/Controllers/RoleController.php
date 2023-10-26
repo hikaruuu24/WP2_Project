@@ -12,7 +12,7 @@ class RoleController extends BaseController
     {
         $data['title'] = 'Role';
         $model = new Role();
-        $data['role'] = $model->findAll();
+        $data['roles'] = $model->findAll();
         return view('master-data/roles/index', $data);
     }
 

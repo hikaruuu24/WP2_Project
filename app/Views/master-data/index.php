@@ -58,7 +58,7 @@
 <div class="row mt-4">
     <div class="col-lg-12 col-md-6">
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-12 p-1" onclick="location.href='<?= route_to('kategori_list') ?>'">
+            <div class="col-md-4 col-sm-6 col-12 p-1" onclick="location.href='<?= route_to('role_list') ?>'">
                 <div class="info-box bg-gradient-info master-data">
                     <span class="info-box-icon" style="background-color:rgb(0, 98, 128); "><i class="fas fa-user text-white"></i></span>
 

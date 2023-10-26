@@ -10,7 +10,7 @@
                     <div class="col-6">
                     </div>
                     <div class="col-6 d-flex justify-content-end mb-2">
-                        <a href="<?=route_to('user_create')?>" class="btn btn-md btn-info">
+                        <a href="<?=route_to('role_create')?>" class="btn btn-md btn-info">
                             <i class="fa fa-plus"></i> 
                             Create record
                         </a>
@@ -26,8 +26,6 @@
                     <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>Email</th>
-                        <th>Username</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -37,9 +35,7 @@
                         <?php foreach ($roles as $data): ?>
                             <tr>
                                 <td><?= $i++ ?></td>
-                                <td><?= $data->email ?></td>
-                                <td><?= $data->username ?></td>
-                                <td><?= $data->name ?></td>
+                                <td><?= $data['name'] ?></td>
                                 <td>
                                     <div class="btn-group-sm">
                                         <a href="<?= route_to('role_edit', $data['id']) ?>"
