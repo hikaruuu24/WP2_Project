@@ -8,7 +8,7 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href=<?= base_url("assets/images/favicon.ico")?>>
+        <!-- <link rel="shortcut icon" href=<?= base_url("assets/images/favicon.ico")?>> -->
 
         <!-- Bootstrap Css -->
         <link href=<?= base_url("assets/css/bootstrap.min.css")?> id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -48,7 +48,7 @@
                                     <a href="javascript:void(0)" class="auth-logo-light">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src=<?=base_url("assets/images/logo-light.svg")?> alt="" class="rounded-circle" height="34">
+                                                <img src=<?=base_url("assets/images/asset-logo-only.png")?> alt="" class="rounded-circle" height="34">
                                             </span>
                                         </div>
                                     </a>
@@ -56,7 +56,7 @@
                                     <a href="javascript:void(0)" class="auth-logo-dark">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src=<?= base_url("assets/images/logo.svg")?> alt="" class="rounded-circle" height="34">
+                                                <img src=<?= base_url("assets/images/asset-logo-only.png")?> alt="" class="rounded-circle" height="80">
                                             </span>
                                         </div>
                                     </a>
@@ -110,11 +110,11 @@
                                         <div class="mt-3 d-grid">
                                             <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
                                         </div>
-<?php if ($config->activeResetter): ?>
+<!-- <?php if ($config->activeResetter): ?>
                                         <div class="mt-4 text-center">
                                             <a href="<?= url_to('forgot') ?>" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
                                         </div>
-<?php endif; ?>
+<?php endif; ?> -->
 
 <?php if ($config->allowRegistration) : ?>
                                         <div class="mt-4 text-center">

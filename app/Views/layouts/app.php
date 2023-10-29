@@ -4,7 +4,7 @@
     
     <?= $this->include('layouts/partials/head') ?>
 
-    <body data-sidebar="dark">
+    <body data-topbar="dark">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 

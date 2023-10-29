@@ -10,9 +10,9 @@ class KategoriController extends BaseController
     
     public function index()
     {
-        $data['title'] = 'Data Category';
+        $data['title'] = 'Kategori';
         $model = new Kategori();
-        $data['kategori'] = $model->findAll();
+        $data['kategoris'] = $model->findAll();
         return view('master-data/kategori/index', $data);
     }
 
@@ -22,76 +22,6 @@ class KategoriController extends BaseController
         $data['title'] = 'Create Kategori';
         $data['validation'] = \Config\Services::validation();
         return view('master-data/kategori/create', $data);
-    }
-
-    public function store() {
-
-        
-         //define validation
-         $validationRules = $this->validate([
-            'name'    =>'required|min_length[3]',
-        ]);
-
-        if (!$validationRules) {
-            $validation = \Config\Services::validation();
-            // Redirect back to the edit form with the ID
-            return redirect()->to("/kategori/create")->withInput();
-        }
-        
-        $model = new Kategori();
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'timestamp' => date('Y-m-d H:i:s')
-        ];
-
-        $model->insert($data);
-
-        session()->setFlashdata('message', 'Record has been created successfully.');
-
-        // Redirect to a different page or list view
-        return redirect()->to('/kategori');
-        
-    }
-
-    public function edit($id) {
-        $data['title'] = 'Edit Kategori';
-        $model = new Kategori();
-        $data['kategori'] = $model->where('id_kategori',$id)->first();
-        return view('master-data/kategori/edit', $data);
-    }
-
-    public function update($id){
-        $model = new Kategori();
-        //define validation
-        $validation = $this->validate([
-            'name'    => [
-                'rules'  => 'required|min_length[3]',
-                'errors' => [
-                    'required' => 'Nama Kategori Harus diisi',
-                    'min_length' => 'Nama Kategori terlalu pendek'
-                ]
-            ],
-        ]);
-
-        if (!$validation) {
-            // Store validation errors in flash data
-            session()->setFlashdata('validation_errors', $this->validator->getErrors());
-        
-            // Redirect back to the edit form with the ID
-            return redirect()->to("/kategori/edit/{$id}");
-        }
-
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'timestamp' => date('Y-m-d H:i:s')
-        ];
-
-        $model->update($id, $data);
-
-        session()->setFlashdata('message', 'Record has been edited successfully.');
-
-        // Redirect to a different page or list view
-        return redirect()->to('/kategori');
     }
 
     public function delete($id) {

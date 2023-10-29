@@ -22,8 +22,8 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                <table id="kategoriTable" class="table table-bordered table-striped dt-responsive nowrap w-100">
-                    <thead class="table-dark">
+                <table id="generalTable" class="table table-bordered table-striped dt-responsive nowrap w-100">
+                    <thead class="table-light">
                     <tr>
                         <th>No</th>
                         <th>Role</th>

@@ -8,13 +8,13 @@
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" key="t-menu">Menu</li>
                             <li>
-                                <a href="chat.html" class="waves-effect">
+                                <a href="<?= route_to('dashboard') ?>" class="waves-effect">
                                     <i class="bx bxs-dashboard"></i>
                                     <span key="t-dashboard">Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="chat.html" class="waves-effect">
+                                <a href="<?= route_to('asset_list') ?>" class="waves-effect">
                                     <i class="bx bx-home-circle"></i>
                                     <span key="t-asset">Asset</span>
                                 </a>
@@ -23,6 +23,12 @@
                                 <a href="chat.html" class="waves-effect">
                                     <i class="bx bx-task"></i>
                                     <span key="t-maintenance">Maintenance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html" class="waves-effect">
+                                    <i class="bx bxs-report"></i>
+                                    <span key="t-maintenance">Report Maintenance</span>
                                 </a>
                             </li>
                             <li>

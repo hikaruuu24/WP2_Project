@@ -12,11 +12,8 @@
     <div class="col-xl-3 col-sm-6">
         <div class="card text-center">
             <div class="card-body">
-                <img class="rounded-circle" width="80px" height="80px"  src=<?= base_url("assets/images/login/avatar_user.png")?> alt="">
+                <img class="rounded-circle" width="80px" height="92px"  src=<?= base_url("assets/images/login/avatar_user.png")?> alt="">
                 <h5 class="font-size-15 mt-3"><a href="javascript: void(0);" class="text-dark"><?= ucfirst(user()->username)?></a></h5>
-            </div>
-            <div class="card-footer bg-transparent border-top">
-                <a href="#" class="btn btn-warning">Edit</a>
             </div>
         </div>
     </div>
@@ -27,20 +24,16 @@
                     <table class="table table-nowrap mb-0">
                         <tbody>
                             <tr>
-                                <th scope="row">ID User :</th>
-                                <td><?= user()->id?></td>
-                            </tr>
-                            <tr>
                                 <th scope="row">E-mail :</th>
-                                <td><?= user()->email?></td>
-                            </tr>
+                                <td><?= $user->email?></td>
+                            </tr>   
                             <tr>
                                 <th scope="row">Username :</th>
-                                <td><?= user()->username?></td>
+                                <td><?= $user->username?></td>
                             </tr>
                             <tr>
                                 <th scope="row">Role :</th>
-                                <td><?= user()->role ?? 'Guest'?></td>
+                                <td><?= $user->role_name ?></td>
                             </tr>
                         </tbody>
                     </table>

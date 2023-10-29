@@ -4,12 +4,12 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Kategori extends Migration
+class Type extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_kategori'         => [
+            'id'         => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
@@ -17,21 +17,20 @@ class Kategori extends Migration
             ],
             'name' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '45',
+                'constraint' => '255',
             ],
             'timestamp' => [
                 'type'       => 'datetime',
                 'null' => true,
             ],
-            // Tambahkan kolom lain sesuai kebutuhan Anda.
         ]);
 
-        $this->forge->addPrimaryKey('id_kategori');
-        $this->forge->createTable('kategori');
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('type');
     }
 
     public function down()
     {
-        $this->forge->dropTable('kategori');
+        $this->forge->dropTable('type');
     }
 }

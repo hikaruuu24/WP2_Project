@@ -3,25 +3,24 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Role;
+use App\Models\Type;
 
-
-class RoleController extends BaseController
+class TypeController extends BaseController
 {
     public function index()
     {
-        $data['title'] = 'Role';
-        $model = new Role();
-        $data['roles'] = $model->findAll();
-        return view('master-data/roles/index', $data);
+        $data['title'] = 'Type ';
+        $model = new Type();
+        $data['types'] = $model->findAll();
+        return view('master-data/types/index', $data);
     }
 
     public function create()
     {
         session();
-        $data['title'] = 'Create Role';
+        $data['title'] = 'Create Type';
         $data['validation'] = \Config\Services::validation();
-        return view('master-data/roles/create', $data);
+        return view('master-data/types/create', $data);
     }
 
     public function store() {
@@ -35,10 +34,10 @@ class RoleController extends BaseController
         if (!$validationRules) {
             $validation = \Config\Services::validation();
             // Redirect back to the edit form with the ID
-            return redirect()->to("/role/create")->withInput();
+            return redirect()->to("/type/create")->withInput();
         }
         
-        $model = new Role();
+        $model = new Type();
         $data = [
             'name' => $this->request->getPost('name'),
             'timestamp' => date('Y-m-d H:i:s')
@@ -49,15 +48,15 @@ class RoleController extends BaseController
         session()->setFlashdata('message', 'Record has been created successfully.');
 
         // Redirect to a different page or list view
-        return redirect()->to('/role');
+        return redirect()->to('/type');
         
     }
 
     public function edit($id) {
-        $data['title'] = 'Edit Role';
-        $model = new Role();
-        $data['role'] = $model->where('id',$id)->first();
-        return view('master-data/roles/edit', $data);
+        $data['title'] = 'Edit Type';
+        $model = new Type();
+        $data['type'] = $model->where('id',$id)->first();
+        return view('master-data/types/edit', $data);
     }
 
     public function update($id) {
@@ -70,10 +69,10 @@ class RoleController extends BaseController
         if (!$validationRules) {
             $validation = \Config\Services::validation();
             // Redirect back to the edit form with the ID
-            return redirect()->to("/role/edit/$id")->withInput();
+            return redirect()->to("/type/edit/$id")->withInput();
         }
 
-        $model = new Role();
+        $model = new Type();
         $data = [
             'name' => $this->request->getPost('name'),
             'timestamp' => date('Y-m-d H:i:s')
@@ -84,12 +83,12 @@ class RoleController extends BaseController
         session()->setFlashdata('message', 'Record has been updated successfully.');
 
         // Redirect to a different page or list view
-        return redirect()->to('/role');
+        return redirect()->to('/type');
     }
 
     public function delete($id) {
 
-        $model = new Role();
+        $model = new Type();
 
         if ($model->delete($id)) {
             $response = [
@@ -109,6 +108,4 @@ class RoleController extends BaseController
         // Return a JSON response
         return $this->response->setJSON($response);
     }
-
-
 }

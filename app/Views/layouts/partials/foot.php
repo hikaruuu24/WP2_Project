@@ -13,7 +13,7 @@
 <script src=<?= base_url("assets/js/app.js")?>></script>
 <script>
 
-    $('#kategoriTable').DataTable();
+    $('#generalTable').DataTable();
 
     function modalDelete(title, name, url, link) {
         $.confirm({

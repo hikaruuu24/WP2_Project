@@ -32,7 +32,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
-$routes->get('/', 'DashboardController::index');
+$routes->get('/', 'DashboardController::index', ['as' => 'dashboard']);
 $routes->get('contoh1', 'Contoh1::index');
 $routes->get('penjumlahan/(:num)/(:num)', 'Contoh1::penjumlahan/$1/$2');
 $routes->get('matakuliah', 'Matakuliah::index');
@@ -40,14 +40,30 @@ $routes->post('matakuliah/cetak', 'Matakuliah::cetak');
 $routes->get('web', 'Web::index');
 $routes->get('web/about', 'Web::about');
 
-// PUSTAKA BOOKING
-$routes->get('kategori', 'KategoriController::index', ['as' => 'kategori_list']);
-$routes->get('kategori/(:num)', 'KategoriController::show/$1');
-$routes->get('kategori/create', 'KategoriController::create');
-$routes->post('kategori', 'KategoriController::store');
-$routes->get('kategori/edit/(:num)', 'KategoriController::edit/$1');
-$routes->put('kategori/(:num)', 'KategoriController::update/$1');
-$routes->delete('kategori/(:num)', 'KategoriController::delete/$1');
+// ASSET
+$routes->get('asset', 'AssetController::index', ['as' => 'asset_list']);
+$routes->get('asset/create', 'AssetController::create', ['as' => 'asset_create']);
+$routes->post('asset', 'AssetController::store', ['as' => 'asset_store']);
+$routes->get('asset/edit/(:num)', 'AssetController::edit/$1', ['as' => 'asset_edit']);
+$routes->put('asset/(:num)', 'AssetController::update/$1', ['as' => 'asset_update']);
+$routes->delete('asset/(:num)', 'AssetController::delete/$1', ['as' => 'asset_delete']);
+$routes->get('asset/(:num)', 'AssetController::show/$1', ['as' => 'asset_show']);
+
+// CATEGORY
+$routes->get('category', 'CategoryController::index', ['as' => 'category_list']);
+$routes->get('category/create', 'CategoryController::create', ['as' => 'category_create']);
+$routes->post('category', 'CategoryController::store', ['as' => 'category_store']);
+$routes->get('category/edit/(:num)', 'CategoryController::edit/$1', ['as' => 'category_edit']);
+$routes->put('category/(:num)', 'CategoryController::update/$1', ['as' => 'category_update']);
+$routes->delete('category/(:num)', 'CategoryController::delete/$1', ['as' => 'category_delete']);
+
+// TYPE
+$routes->get('type', 'TypeController::index', ['as' => 'type_list']);
+$routes->get('type/create', 'TypeController::create', ['as' => 'type_create']);
+$routes->post('type', 'TypeController::store', ['as' => 'type_store']);
+$routes->get('type/edit/(:num)', 'TypeController::edit/$1', ['as' => 'type_edit']);
+$routes->put('type/(:num)', 'TypeController::update/$1', ['as' => 'type_update']);
+$routes->delete('type/(:num)', 'TypeController::delete/$1', ['as' => 'type_delete']);
 
 // ROLE
 $routes->get('role', 'RoleController::index', ['as' => 'role_list']);
