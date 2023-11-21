@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class Category extends Model
 {
+    // var 
     protected $table = 'category';
     protected $primaryKey = 'id';
     protected $allowedFields = ['name', 'timestamp'];

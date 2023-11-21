@@ -49,7 +49,7 @@ $routes->put('asset/(:num)', 'AssetController::update/$1', ['as' => 'asset_updat
 $routes->delete('asset/(:num)', 'AssetController::delete/$1', ['as' => 'asset_delete']);
 $routes->get('asset/(:num)', 'AssetController::show/$1', ['as' => 'asset_show']);
 
-// CATEGORY
+// CATEGORY ROUTES
 $routes->get('category', 'CategoryController::index', ['as' => 'category_list']);
 $routes->get('category/create', 'CategoryController::create', ['as' => 'category_create']);
 $routes->post('category', 'CategoryController::store', ['as' => 'category_store']);

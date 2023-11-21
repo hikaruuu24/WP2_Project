@@ -7,6 +7,7 @@ use App\Models\Category;
 
 class CategoryController extends BaseController
 {
+    // get data category
     public function index()
     {
         $data['title'] = 'Category';
@@ -15,6 +16,7 @@ class CategoryController extends BaseController
         return view('master-data/categories/index', $data);
     }
 
+    // get view create page
     public function create()
     {
         session();
@@ -23,6 +25,7 @@ class CategoryController extends BaseController
         return view('master-data/categories/create', $data);
     }
 
+    // proses transaksi store
     public function store() {
 
         
@@ -51,7 +54,7 @@ class CategoryController extends BaseController
         return redirect()->to('/category');
         
     }
-
+// edit page
     public function edit($id) {
         $data['title'] = 'Edit Category';
         $model = new Category();
@@ -59,6 +62,7 @@ class CategoryController extends BaseController
         return view('master-data/categories/edit', $data);
     }
 
+    // proses transaksi update
     public function update($id) {
 
         //define validation
@@ -86,6 +90,7 @@ class CategoryController extends BaseController
         return redirect()->to('/category');
     }
 
+    // proses delete
     public function delete($id) {
 
         $model = new Category();

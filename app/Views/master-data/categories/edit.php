@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/app'); ?>
 <?= $this->section('content'); ?>
+<!-- category edit page -->
 <div class="row">
     <div class="col-6">
         <div class="card">

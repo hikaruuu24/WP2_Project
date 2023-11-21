@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/app'); ?>
 <?= $this->section('content'); ?>
+<!-- list category page -->
 <div class="row">
     <div class="col-12">
         <div class="card">
