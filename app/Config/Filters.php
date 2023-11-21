@@ -30,6 +30,8 @@ class Filters extends BaseConfig
      * List of filter aliases that are always
      * applied before and after every request.
      */
+
+    //  switch login
     public array $globals = [
         'before' => [
             'honeypot',
